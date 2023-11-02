@@ -85,6 +85,6 @@ class Model:
         iou = intersection / union
 
         print("Dice : ", dice)
-        print("IoU : ", IoU)
+        print("IoU : ", iou)
 
 

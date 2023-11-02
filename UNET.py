@@ -9,6 +9,7 @@ import matplotlib.pyplot as plt
 import zipfile
 import cv2
 import os
+import requests
 
 repository_owner = "44Ap0pt0se54"
 repository_name = "U_NET_medical_segmentation"

@@ -12,7 +12,7 @@ import os
 
 class Model:
 
-    def __init__(self, type):
+    def __init__(self):
 
         self.model = tf.keras.models.load_model("/content/Unet_3L")
        

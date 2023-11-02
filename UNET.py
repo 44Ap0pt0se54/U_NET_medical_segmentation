@@ -72,8 +72,8 @@ class Model:
         pred = self.model.predict(test_images)
 
         for i in range(len(pred)):
-            pred[i][pred[i] > thresh] = 1
-            pred[i][pred[i] <= thresh] = 0
+            pred[i][pred[i] > 0.3] = 1
+            pred[i][pred[i] <= 0.3] = 0
 
         mask1_flat = pred.flatten()
         mask2_flat = test_masks.flatten()

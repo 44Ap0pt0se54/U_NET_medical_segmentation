@@ -9,40 +9,6 @@ import matplotlib.pyplot as plt
 import zipfile
 import cv2
 import os
-import requests
-
-repository_owner = "44Ap0pt0se54"
-repository_name = "U_NET_medical_segmentation"
-release_tag = "Unet_3L"
-
-# Construct the API URL for the release
-api_url = f"https://api.github.com/repos/44Ap0pt0se54/U_NET_medical_segmentation/releases/tags/Unet_3L"
-# Make a GET request to the API
-response = requests.get(api_url)
-# Check if the request was successful
-if response.status_code == 200:
-    release_info = response.json()
-else:
-    print(f"Failed to fetch release information. Status code: {response.status_code}")
-    exit()
-# Define a directory where you want to save the downloaded assets
-download_directory = "/content"
-# Create the directory if it doesn't exist
-os.makedirs(download_directory, exist_ok=True)
-# Iterate through the assets and download them
-for asset in release_info['assets']:
-    asset_name = asset['name']
-    asset_url = asset['browser_download_url']
-    download_path = os.path.join(download_directory, asset_name)
-    print(f"Downloading {asset_name} from GitHub repo...")
-    # Make a GET request to download the asset
-    asset_response = requests.get(asset_url)
-    if asset_response.status_code == 200:
-        with open(download_path, 'wb') as f:
-            f.write(asset_response.content)
-        print(f"Downloaded {asset_name}")
-    else:
-        print(f"Failed to download {asset_name}. Status code: {asset_response.status_code}")
 
 class Model:
 
